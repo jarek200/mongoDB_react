@@ -1,5 +1,6 @@
 import express from 'express'
 import productRoutes from './routes/products.js'
+import authRoutes from './routes/auth.js'
 import dotenv from 'dotenv'
 import { connectDatabase } from './config/dbConnect.js'
 import errorMiddleware from './middlewares/errors.js'
@@ -24,6 +25,7 @@ app.use(express.json())
 // Importing the routes
 
 app.use('/api/v1', productRoutes)
+app.use('/api/v1', authRoutes)
 
 // Middleware to handle errors
 app.use(errorMiddleware)
