@@ -4,6 +4,7 @@ import authRoutes from './routes/auth.js'
 import dotenv from 'dotenv'
 import { connectDatabase } from './config/dbConnect.js'
 import errorMiddleware from './middlewares/errors.js'
+import cookieParser from 'cookie-parser'
 
 // Hangle Uncaught exceptions
 process.on('uncaughtException', err => {
@@ -21,6 +22,7 @@ connectDatabase()
 
 // Middleware
 app.use(express.json())
+app.use(cookieParser())
 
 // Importing the routes
 
